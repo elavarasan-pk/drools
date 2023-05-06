@@ -1,0 +1,17 @@
+package com.rule
+
+import com.hi.techpoints.model.Product
+
+rule "Offer for Iphone"
+	when 
+		productObject: Product(model=="Iphone")
+	then
+		productObject.setDiscount(20);
+	end
+	
+rule "Offer for Pixel"
+	when 
+		productObject: Product(model=="Pixel")
+	then
+		productObject.setDiscount(30);
+	end
