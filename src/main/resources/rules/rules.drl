@@ -1,0 +1,26 @@
+package rules
+
+import com.hi.techpoints.model.Product
+
+rule "Product count 1"
+	when 
+		$product: Product()
+	then
+		System.out.println("Product count there (1) : " + $product.getProductId() + " and the model name is : " + $product.getModel());
+	end
+	
+rule "Product count 2"
+	when 
+		$product: Product()
+		accumulate (Product() ; $cnt : count())
+	then
+		System.out.println("Product count there (2) : " + $product.getProductId() + " and the model name is : " + $product.getModel()
+    +" accumaulated value is " +$cnt);
+	end
+	
+rule "Product count 3" 
+	when 
+		Product()
+	then
+		System.out.println("Product count there (3) : ");
+	end	
