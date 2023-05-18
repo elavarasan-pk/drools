@@ -2,8 +2,23 @@ package com.hi.techpoints.model;
 
 public class Product {
 
+	private int productId;
 	private String model;
-	private int discount;
+    
+
+	public Product(int productId, String model) {
+		super();
+		this.productId = productId;
+		this.model = model;
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 
 	public String getModel() {
 		return model;
@@ -11,14 +26,6 @@ public class Product {
 
 	public void setModel(String model) {
 		this.model = model;
-	}
-
-	public int getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(int discount) {
-		this.discount = discount;
 	}
 
 }
