@@ -1,4 +1,3 @@
-
 import com.hi.techpoints.model.Product
 
 rule "Offer for Iphone"
