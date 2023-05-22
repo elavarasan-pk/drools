@@ -1,0 +1,27 @@
+
+import com.hi.techpoints.model.Product
+
+rule "Offer for Iphone"
+	when 
+		productObject: Product(model == "Iphone")
+	then
+		productObject.setDiscount(5 + productObject.getDiscount());
+		System.out.println("Offer for Iphone");
+	end
+	
+rule "Offer for Pixel"
+	when 
+		productObject: Product(model == "Pixel")
+	then
+		productObject.setDiscount(10 + productObject.getDiscount());
+		System.out.println("Offer for pixel");
+	end
+	
+rule "if buyer is gold membership"
+no-loop true
+	when 
+		productObject: Product(buyer == "Gold")
+	then
+		System.out.println("This is gold membership customer double the discount");
+		update(productObject)
+	end	
