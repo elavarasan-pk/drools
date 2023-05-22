@@ -1,0 +1,36 @@
+package rules
+
+import com.hi.techpoints.model.Event
+
+dialect  "mvel"
+
+query isContainedIn( String x, String y) 
+  Event( x, y; )
+  or
+  ( Event( z, y; ) and isContainedIn( x, z; ) )
+end
+
+rule "Check the condition is true"
+	when 
+		isContainedIn("Hockey", "Sport Event"; )
+	then
+		System.out.println( "Decision taken -- Hockey is in the Sport Event" );
+	    System.out.println( "-----------------------------" );
+	    System.out.println( "-----------All Facts-----------------" );
+	end
+	
+rule "Check the condition is false"
+	when 
+	   not isContainedIn("Hockey", "Sport Event"; )
+	then
+		System.out.println( "Decision taken -- Hockey is not in the Sport Event" );
+	    System.out.println( "-----------------------------" );
+	    System.out.println( "-----------All Facts-----------------" );
+	end
+	
+rule "get all facts"
+	when
+	    isContainedIn(entity, event; )
+	then
+	    System.out.println( "Entity " + entity + " is in " + event );
+	end
