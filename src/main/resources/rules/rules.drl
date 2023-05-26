@@ -1,0 +1,30 @@
+
+import com.hi.techpoints.model.Product
+
+rule "Offer for Iphone"
+	when 
+		productObject: Product(model == "Iphone")
+	then
+		productObject.setDiscount(5);
+		System.out.println("Offer for Iphone");
+	end
+	
+rule "Offer for Pixel"
+salience 1
+activation-group "Pixel"
+	when 
+		productObject: Product(model == "Pixel")
+	then
+		productObject.setDiscount(10);
+		System.out.println("Offer for pixel");
+	end
+	
+rule "Offer for Pixel on New Year Sale"
+salience 2
+activation-group "Pixel"
+	when 
+		productObject: Product(model == "Pixel" && event == "Sale")
+	then
+	    productObject.setDiscount(15);
+		System.out.println("Offer for Pixel on New Year Sale");
+	end	
