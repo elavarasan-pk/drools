@@ -10,8 +10,8 @@ rule "Offer for Iphone"
 	end
 	
 rule "Offer for Pixel"
-salience 1
-activation-group "Pixel"
+salience 10
+activation-group "Pixel Mobile"
 	when 
 		productObject: Product(model == "Pixel")
 	then
@@ -20,8 +20,8 @@ activation-group "Pixel"
 	end
 	
 rule "Offer for Pixel on New Year Sale"
-salience 2
-activation-group "Pixel"
+salience 20
+activation-group "Pixel Mobile"
 	when 
 		productObject: Product(model == "Pixel" && event == "Sale")
 	then
