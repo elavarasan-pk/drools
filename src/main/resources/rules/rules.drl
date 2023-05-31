@@ -11,20 +11,20 @@ rule "Offer for Iphone"
 	
 rule "Offer for Pixel"
 salience 10
-activation-group "Pixel Mobile"
+//activation-group "Pixel Mobile"
 	when 
 		productObject: Product(model == "Pixel")
 	then
-		productObject.setDiscount(10);
+		productObject.setDiscount(productObject.getDiscount() + 10);
 		System.out.println("Offer for pixel");
 	end
 	
 rule "Offer for Pixel on New Year Sale"
 salience 20
-activation-group "Pixel Mobile"
+//activation-group "Pixel Mobile"
 	when 
 		productObject: Product(model == "Pixel" && event == "Sale")
 	then
-	    productObject.setDiscount(15);
+	    productObject.setDiscount(productObject.getDiscount() + 15);
 		System.out.println("Offer for Pixel on New Year Sale");
 	end	
