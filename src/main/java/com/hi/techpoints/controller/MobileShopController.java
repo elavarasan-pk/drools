@@ -16,9 +16,9 @@ public class MobileShopController {
 	private MobileShopService mobileShopService; 
 
 	@RequestMapping(value = "/getDiscount", method = RequestMethod.GET, produces = "application/json")
-	public Product getQuestions(@RequestParam(required = true) String type) {
+	public Product getQuestions(@RequestParam(required = true) String model) {
 		Product product = new Product();
-		product.setModel(type);
+		product.setModel(model);
 		mobileShopService.getProductDiscount(product);
 		return product;
 	}
